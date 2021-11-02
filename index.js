@@ -43,6 +43,7 @@ async function fetchCors(url='')
 
 window.onload = function()
 { 
+
     const Http = new XMLHttpRequest();
     const url = 'https://api.etherscan.io/api?module=stats&action=tokensupply&contractaddress=0xc0f9bd5fa5698b6505f643900ffa515ea5df54a9&apikey=KIX2DUCUIVGT5PMEKF65TJIXMSQXTFCRYH';
     Http.open('GET', url);
@@ -67,7 +68,6 @@ window.onload = function()
     {
         if(this.readyState == 4 && this.status == 200)
         {
-            console.log(Http1.responseText);
             const obj1 = JSON.parse(Http1.responseText);
 
             var price = obj1.donut.usd;
@@ -78,7 +78,6 @@ window.onload = function()
             document.querySelector(".price").innerHTML = '$' + price;
             document.querySelector(".market-cap").innerHTML = marketCap;
 
-            console.log(price, marketCap, typeof price, typeof marketCap);
         }
     }
 
@@ -90,15 +89,26 @@ window.onload = function()
         document.querySelector(".members").innerHTML = members;
 
         var top_posts = [];
+        var author = [];
+        var upvotes = [];
+        var flair = [];
+        var url = [];
 
         for(var i = 0;i < 9;i++)
         {
             top_posts.push(result['data']['children'][i]['data']['title']);
+            author.push(result['data']['children'][i]['data']['author']);
+            upvotes.push(result['data']['children'][i]['data']['score']);
+            flair.push(result['data']['children'][i]['data']['link_flair_text']);
+            url.push(result['data']['children'][i]['data']['permalink']);
         }
 
-        console.log(top_posts);
+        // console.log(top_posts);
 
-        for(var i = 0;i < 9;i++)
+        var i = 0;
+        var selector;
+        var collection;
+        for(i = 0;i < 9;i++)
         {
             var row, post;
             if (i >=0 && i<=2)
@@ -118,10 +128,17 @@ window.onload = function()
                 row = 3;
                 post = (i % 3) + 1;
             }
-            var selector = `.r${row}p${post}`;
-            console.log(selector, typeof selector);
-            console.log(document.querySelector(selector).innerHTML);
-            document.querySelector(selector).innerHTML = top_posts[i];
+            selector = `.r${row}p${post}`;
+
+            collection = document.querySelectorAll(selector);
+
+            for(item of collection)
+            {
+                item.innerHTML = top_posts[i];
+                item.innerHTML += ` by user ${author[i]}, flaired ${flair[i]} with ${upvotes[i]} upvotes`;
+                item.href = "https://www.reddit.com" + url[i];
+            }
+
         }
 
     });
@@ -131,10 +148,7 @@ window.onload = function()
     {
         console.log("Device is iOS");
         var collection = document.getElementsByTagName("picture");
-        for(i = 0;i < collection.length;i++)
-        {
-            collection.item(i).innerHTML = '<source type="image/gif" srcset="/assets/donut.gif">' + collection.item(i).innerHTML;
-        }
+        collection.item(0).innerHTML = '<source type="image/gif" srcset="donut1.gif">' + collection.item(0).innerHTML;
         console.log("iOS fix applied");
     }
 }
