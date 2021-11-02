@@ -391,13 +391,16 @@ ul {
   text-align: left; }
 
 #big-card-showcase picture {
-  height: 30rem; }
+  height: 30rem;
+  min-height: 30rem;
+  max-height: 30rem; }
   #big-card-showcase picture img, #big-card-showcase picture source {
     object-fit: cover;
     width: 100%;
     height: 27rem; }
 
 #big-card {
+  height: 50rem;
   padding: 2rem;
   background-image: linear-gradient(to right top, #e96d82, #be5f82, #915379, #664766, #43394d, #363240, #2c2b33, #232325, #232325, #232325, #232325, #232325);
   border-radius: 1.25rem;
@@ -566,7 +569,12 @@ ul {
     margin-top: -2rem;
     padding: 0px;
     letter-spacing: -0.05em; }
-  #sub-menu, #buttonHolder {
+  #nav-bar {
+    flex-wrap: wrap; }
+  #sub-menu {
+    margin-left: 0;
+    font-size: 0.8rem; }
+  #current-page {
     display: none; }
   #lander-links {
     flex-direction: column;
@@ -612,11 +620,13 @@ ul {
     display: block;
     margin: 0;
     padding: 1rem; }
+    #big-card-showcase #big-card {
+      height: initial;
+      min-height: initial;
+      max-height: initial;
+      width: 100%; }
     #big-card-showcase picture {
-      height: initial; }
-      #big-card-showcase picture img, #big-card-showcase picture source {
-        width: initial;
-        height: initial; }
+      height: 10rem !important; }
   #ethereum-text p {
     font-size: 3.5rem !important; }
   #xdai-text p {
@@ -634,19 +644,23 @@ ul {
     #first-end .end-card {
       margin: auto !important;
       margin-bottom: 1rem !important; }
-  #uniswap #swap {
-    flex-direction: column; }
-    #uniswap #swap div {
-      text-align: center; }
-    #uniswap #swap a:first-child {
-      margin-right: 0;
-      width: 100%;
-      margin-bottom: 0.5rem; }
-  #uniswap #end-btn-1:hover {
-    background-color: #a4f0f7;
-    color: black;
-    transform: translateY(-0.5rem);
-    box-shadow: 1px 1rem 2rem rgba(164, 240, 247, 0.4); }
+  #discord {
+    width: 100%; }
+  #uniswap {
+    width: 100%; }
+    #uniswap #swap {
+      flex-direction: column; }
+      #uniswap #swap div {
+        text-align: center; }
+      #uniswap #swap a:first-child {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 0.5rem; }
+    #uniswap #end-btn-1:hover {
+      background-color: #a4f0f7;
+      color: black;
+      transform: translateY(-0.5rem);
+      box-shadow: 1px 1rem 2rem rgba(164, 240, 247, 0.4); }
   .last-divider {
     margin-top: 2rem !important; }
   #end-explore {

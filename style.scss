@@ -553,11 +553,20 @@ ul
     align-items: center;
     letter-spacing: -0.03125rem !important;
     text-align: left;
+
+    div:last-child
+    {
+        div:first-child
+        {
+            // overflow-wrap: break-word;
+        }
+    }
 }
 #big-card-showcase picture
 {
     height: 30rem;
-    
+    min-height: 30rem;
+    max-height: 30rem;
     img, source
     {
         object-fit: cover;
@@ -567,7 +576,7 @@ ul
 }
 #big-card
 {
-    // height: 30rem;
+    height: 50rem;
     padding: 2rem;
     // background-color: #232325;
     background-image: linear-gradient(to right top, #e96d82, #be5f82, #915379, #664766, #43394d, #363240, #2c2b33, #232325, #232325, #232325, #232325, #232325);
@@ -854,7 +863,16 @@ ul
         letter-spacing: -0.05em;
     }
 
-    #sub-menu, #buttonHolder
+    #nav-bar
+    {
+        flex-wrap: wrap;
+    }
+    #sub-menu
+    {
+        margin-left: 0;
+        font-size: 0.8rem;
+    }
+    #current-page
     {
         display: none;
     }
@@ -931,18 +949,30 @@ ul
 
     #big-card-showcase
     {
+        #big-card
+        {
+            height: initial;
+            min-height: initial;
+            max-height: initial;
+            width: 100%;
+
+            .mediumText
+            {
+                // margin-bottom: 10rem;
+            }
+        }
         // flex-direction: column;
         // justify-content: center;
         // align-items: center;
         display: block;
         picture
         {
-            height: initial;
+            height: 10rem !important;
 
             img, source
             {
-                width: initial;
-                height: initial;
+                // width: initial;
+                // height: initial;
             }
         }
 
@@ -987,8 +1017,13 @@ ul
         justify-content: space-around;
     }
 
+    #discord
+    {
+        width: 100%;
+    }
     #uniswap
     {
+        width: 100%;
         #swap
         {
             flex-direction: column;
