@@ -809,11 +809,17 @@ ul
 
 #last-padding
 {
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     padding-right: 2rem;
     padding-left: 2rem;
 }
 
+#attributions
+{
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
 
 
 
@@ -947,6 +953,21 @@ ul
         }
     }
 
+    #showcase
+    {
+        .post
+        {
+            width: 100vw;
+            min-width: 100vw;
+            max-width: 100vw;
+        }
+        .post-1
+        {
+            width: 100vw;
+            min-width: 100vw;
+            max-width: 100vw;
+        }
+    }
     #big-card-showcase
     {
         #big-card
