@@ -56,7 +56,7 @@ ul {
   align-items: center;
   flex-wrap: nowrap;
   min-width: min-content;
-  animation: postmove-right 10s linear infinite; }
+  animation: postmove-right 30s linear infinite; }
 
 .showcase-flex-1 {
   width: 50%;
